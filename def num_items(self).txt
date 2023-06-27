@@ -1,0 +1,20 @@
+def num_items(self):
+  cnt = 0
+  curr = self.__head.next
+  while curr != None:
+      cnt += 1
+      curr = curr.next
+
+  return cnt
+
+
+----------재귀를 사용하지 않는  코드--------------
+
+
+def num_items(self, node):
+	if node == None:
+    	return 0
+    return 1 + num_items(node.next)
+
+
+----------재귀 알고리즘으로 구현한 코드 ---------------

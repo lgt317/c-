@@ -1,0 +1,23 @@
+
+#include <stdio.h>
+#pragma warning(disable:4996)
+
+long long factorial(int n) {
+	long long fac = 1;
+
+	for (int i = 1; i <= n; i++) {
+		fac *= i;
+	}
+	return fac;
+}
+
+int main() {
+	int n;
+	printf("몇 팩토리얼? ==>");
+	scanf("%d", &n);
+
+	printf("%lld 입니다. \n", factorial(n));
+
+	return 0;
+
+}

@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+
+class ConvertSecond{
+	private:
+
+		int hour;
+		int min;
+		int snd;
+
+	public:
+		ConvertSecond();
+
+	void setData();
+
+	int getResult();
+};
+
+ConvertSecond::ConvertSecond() {
+	hour = 0;
+	min = 0;
+	snd = 0;
+
+
+};
+
+
+void ConvertSecond::setData() {
+	cout << "시: " << endl;
+	cin >> hour;
+	cout << "분: " << endl;
+	cin >> min;
+	cout << "초: " << endl;
+	cin >> snd;
+}
+
+int ConvertSecond::getResult() {
+	return hour * 3600 + min * 60 + snd;
+}
+
+/*여기코딩: 선언부/구현부분리. 소멸자코딩안함.int형멤버변수3개는private (더이상멤버변수없음)생성자에서는멤버변수3개모두0으로초기화*/
+
+int main() {
+	
+	ConvertSecond a;
+	a.setData(); /* 사용자에게시,분,초입력받아서멤버변수에넣음*/
+	
+	cout<< "입력하신시간은총" << a.getResult() << " 초입니다." << endl;
+	
+	ConvertSecond b;   /* 이번에는사용자입력안받았으므로결과는0초나옴*/
+	cout<< "기본시간은총" << b.getResult() << " 초입니다." << endl;
+
+}

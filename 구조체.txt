@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+struct student { 
+
+	int sid;  //멤버변수
+	char name[30];
+	double score;
+};
+
+
+
+int main(){
+	struct student s1;
+	s1.sid = 2028603;
+	strcpy(s1.name, "둘리");    
+	s1.score = 4.5;
+
+	cout << "학번" << s1.sid << endl;
+	cout << "이름" << s1.name << endl;
+	cout << "성적" << s1.score << endl;
+
+
+
+}

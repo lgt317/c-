@@ -1,0 +1,34 @@
+from selectionSort import *
+import random
+import time
+import sys
+
+sys.setrecursionlimit(100000)   #재귀 호출의 제한을 100000 으로 설정
+ListLength = 1000               #리스트의 길이를 1000으로
+
+total_non_recursive_time = 0    #비재귀 선택정렬에 저장할 변수 초기화
+total_recursive_time = 0        #재귀 선택정렬에 저장할 변수 초기화
+num_iterations = 500            #실행 횟수 1000번은 안돌아가서 500번으로 선언
+
+for _ in range(num_iterations):     #num_iterations 만큼 반복
+    B = []
+    for value in range(0, ListLength):
+        B.append(random.randint(0, 300))   #0~300의 정수를 생성하고 b에 추가
+
+    A = B                        #리스트 B를 A에 복사
+    start = time.time()          #정렬의 실행후 시간을 측정
+    selectionSort(A)
+    end = time.time()
+    total_non_recursive_time += end - start     #실행 시간을 누적
+
+    A = B
+    start = time.time()             #리스트 B를 A에 복사
+    selectionSort(A)                #정렬의 실행후 시간을 측정
+    end = time.time()
+    total_recursive_time += end - start   # 실행 시간을 누적
+
+average_non_recursive_time = total_non_recursive_time / num_iterations  # 비재귀의 평균 시간 계산
+average_recursive_time = total_recursive_time / num_iterations          # 재귀의 평균 시간 계산
+
+print('비재귀 평균시간:', average_non_recursive_time)
+print('재귀 평균시간:', average_recursive_time)

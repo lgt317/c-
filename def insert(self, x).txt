@@ -1,0 +1,40 @@
+def insert(self, x):
+    self.__root = self.__insertItem(self.__root, x)
+
+def __insertItem(self, tNode: AVLNode, x):
+    if tNode == self.NIL:
+        tNode = AVLNode(x, self.NIL, self.NIL, 1)
+    elif x < tNode.item:
+        tNode.left = self.__insertItem(tNode.left, x)
+        tNode.height = 1 + max(tNode.right.height, tNode.left.height)
+        type = self.__needBalance(tNode)
+        if (type != self.NO_NEED):
+            tNode = self.__balanceAVL(tNode, type)
+    else:
+        tNode.right = self.__insertItem(tNode.right, x)
+        tNode.height = 1 + max(tNode.right.height, tNode.left.height)
+        type = self.__needBalance(tNode)
+        if type != self.NO_NEED:
+            tNode = self.__balanceAVL(tNode, type)
+    return tNode
+-------------------------------------------------------------------------------------
+
+   def insert(self, x):
+        self.__root = self.__insertItem(self.__root, x)
+
+    def __insertItem(self, tNode:AVLNode, x) -> AVLNode:
+        if (tNode == self.NIL):
+            tNode = AVLNode(x, self.NIL, self.NIL, 1)
+        elif (x < tNode.item):  
+            tNode.left = self.__insertItem(tNode.left, x)  
+            tNode.height = 1 + max(tNode.right.height, tNode.left.height)
+            type = self.__needBalance(tNode)   
+            if (type != self.NO_NEED):
+                tNode = self.__balanceAVL(tNode, type)
+        else:
+            tNode.right = self.__insertItem(tNode.right, x)
+            tNode.height = 1 + max(tNode.right.height, tNode.left.height)
+            type = self.__needBalance(tNode)
+            if (type != self.NO_NEED):
+                tNode = self.__balanceAVL(tNode, type)
+        return tNode

@@ -1,0 +1,45 @@
+#include <stdio.h>
+#pragma warning(disable:4996)
+
+#define RAD 3.141592
+int area(int q, int w, int e) {
+	float t;
+
+	if (e == 3) {
+		t = q * w / 2.0;
+		printf("삼각형의 넓이는 %.1f입니다. \n", t);
+	}
+	else if (e == 4) {
+		t = q * w;
+		printf("사각형의 넓이는 %g 입니다. \n", t);
+	}
+	else if (e == 1) {
+		t = (q * q) * RAD;
+		printf("원의 넓이는 %.4f 입니다. \n", t);
+	}
+	else {
+		printf("그런 도형 아직 코딩 안되어있습니다.\n");
+		return 0;
+	}
+
+}
+int main() {
+	int a, b, n;
+	do {
+		printf("가로 세로 입력");
+		scanf("%d %d", &a, &b);
+
+
+		if (a == 0 && b == 0)
+			break;
+
+		printf("몇각형==>");
+		scanf("%d", &n);
+		area(a, b, n);
+
+
+	} while (1);
+	printf("종료합니다. bye!\n");
+
+	return 0;
+}
