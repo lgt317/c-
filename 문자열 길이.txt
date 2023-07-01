@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstring> 
+using namespace std;
+
+int main() {
+
+    char a[100] = "안녕하세요?";
+    char b[100] = "날씨가 참 좋군요.";
+    char c[100] = "안녕히 계세요!";
+
+    cout << "함수 사용\n" << strlen(a) << " " << strlen(b) << " " << strlen(c) << endl;
+
+    cout << "반복문 으로 계산" << endl;
+
+    char* Arr[3] = { a, b, c };
+
+    for (int i = 0; i < 100; i++) {
+        int len = 0;  
+        while (Arr[i][len] != '\0') {  
+            len++;
+        }
+        cout << len << " ";
+    }
+
+    return 0;
+}
+//개시빠 머가 다른건데 ㅇ왜 안나오노 !!!!  인 생 이 억 까 다   맨 시 티 예 매 하 고 싶 다
