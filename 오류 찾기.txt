@@ -1,0 +1,38 @@
+오류 찾기
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    int x= 1;
+};
+
+class B : public A {
+public:
+    int y = 2;
+};
+
+class C : private A {
+public:
+    int z = 3;
+};
+
+class D : protected B {
+public:
+    int w = 4;
+};
+
+int main() {
+    A a;
+    B b;
+    C c;
+    D d;
+    cout << a.x << endl;        // A 클래스의 x 멤버 접근 가능
+    cout << b.x << endl;        // A 클래스의 x 멤버 상속받음
+    cout << b.y << endl;        // B 클래스의 y 멤버 접근 가능
+    // cout << c.x << endl;    // A 클래스의 x 멤버 C 클래스에서 private 상속받음
+    cout << c.z << endl;        // C 클래스의 z 멤버 접근 가능
+    // cout << d.y << endl;    // B 클래스의 y 멤버 D 클래스에서 protected 상속받음
+    // cout << d.x << endl;      // B 클래스의 x 멤버 D 클래스에서 protected로 상속받음
+    cout << d.w << endl;        // D 클래스의 w 멤버 접근 가능
+}

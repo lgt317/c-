@@ -1,0 +1,49 @@
+동물 사전
+
+#include <iostream>
+#include <fstream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+int main() {
+    ifstream fin("동물사전.txt");
+    if (!fin) {
+        cout << "파일을 열지 못했습니다." << endl;
+        return -1;
+    }
+
+    map<string, string> m;
+    string line;
+    while (getline(fin, line)) {
+        size_t pos = line.find('\t');
+        string key = line.substr(0, pos);
+        string value = line.substr(pos + 1);
+        m[key] = value;
+    }
+    fin.close();
+
+    cout << "동물 사전에 총 " << m.size() << " 건의 데이터가 있습니다." << endl;
+    cout << endl << "원하시는 동물을하시면 영어단어를 찾아드립니다." << endl;
+
+    while (true) {
+        cout << "동물 이름 ==> ";
+        string input;
+        getline(cin, input);
+
+        if (input == "exit") {
+            cout << "bye~" << endl;
+            break;
+        }
+
+        if (m.find(input) == m.end()) {
+            cout << "Not found..." << endl;
+        }
+        else {
+            cout << m[input] << endl;
+        }
+    }
+
+    return 0;
+}
